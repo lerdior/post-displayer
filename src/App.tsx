@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Posts from "./components/list/Posts";
+import DetailedPost from "./components/post/DetailedPost";
+import { PostType } from "./types/Post";
 
 function App() {
+  const [selectedPost, setSelectedPost] = useState<PostType>();
+
+  const logEvent = (componentName: string) => {
+    console.log(`Hello from ${componentName}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigate to="/posts" replace={true} />} />
+      <Route
+        index
+        path="/posts"
+        element={<Posts logEvent={logEvent} setSelectedPost={setSelectedPost} />}
+      />
+      <Route
+        path="/post/:postId"
+        element={<DetailedPost selectedPost={selectedPost} logEvent={logEvent} />}
+      />
+    </Routes>
   );
 }
 
