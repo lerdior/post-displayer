@@ -3,9 +3,10 @@ import { PostProps } from "../../types/Post";
 import { CommentType } from "../../types/Comment";
 import { mapComment } from "../../helpers/mapComments";
 import { Link } from "react-router-dom";
+import Title from "./Title";
 
 interface OptionalLinkProps {
-  postId?: number;
+  postId: number;
   children: ReactNode;
   hasLink: boolean;
   onClick?: Function;
@@ -46,9 +47,9 @@ function Post({ post, hasLink = true, setSelectedPost = () => {}, logEvent }: Po
   const { id, title, body, user } = post;
 
   return (
-    <OptionalLink postId={post?.id} onClick={() => setSelectedPost(post)} hasLink={hasLink}>
+    <OptionalLink postId={post.id} onClick={() => setSelectedPost(post)} hasLink={hasLink}>
       <div key={id} className="post">
-        <h3>{title}</h3>
+        <Title text={title} titleSize={2} />
         <p className="post-description">{body}</p>
         <div className="author">
           <span>{user?.name || ""}</span>

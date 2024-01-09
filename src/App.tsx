@@ -22,7 +22,7 @@ function App() {
       />
       <Route
         path="/post/:postId"
-        element={<DetailedPost selectedPost={selectedPost} logEvent={logEvent} />}
+        element={<DetailedPost logEvent={logEvent} selectedPost={selectedPost} />}
       />
     </Routes>
   );

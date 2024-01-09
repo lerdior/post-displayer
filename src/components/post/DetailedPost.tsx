@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { DetailedPostProps, PostType } from "../../types/Post";
-import Post from "../list/Post";
+import Post from "../shared/Post";
 import { mapPost } from "../../helpers/mapPosts";
 import { UserType } from "../../types/User";
 import { mapUser } from "../../helpers/mapUsers";

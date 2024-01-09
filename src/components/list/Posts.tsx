@@ -4,7 +4,8 @@ import { PostType } from "../../types/Post";
 import { UserType } from "../../types/User";
 import { mapUser } from "../../helpers/mapUsers";
 import { mapPost } from "../../helpers/mapPosts";
-import Post from "./Post";
+import Post from "../shared/Post";
+import Title from "../shared/Title";
 
 function Posts({ logEvent, setSelectedPost }: PostsProps) {
   const [loadingPosts, setLoadingPosts] = useState(false);
@@ -65,7 +66,7 @@ function Posts({ logEvent, setSelectedPost }: PostsProps) {
   return (
     <main>
       <div className="flex space-between">
-        <h1>Posts</h1>
+        <Title text="Posts" titleSize={1} />
         <input
           type="search"
           value={searchInput}
